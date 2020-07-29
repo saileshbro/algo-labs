@@ -65,7 +65,7 @@ def generateForBinary():
         binary_result["exec_best"].append(elapsed)
         start = time()
         # worst case
-        binary_search(data, 1, 0, i-1)
+        binary_search(data, -1, 0, i-1)
         elapsed = time() - start
         binary_result["exec_worst"].append(elapsed)
         random = choice(data)
@@ -90,4 +90,4 @@ def generateForBinary():
 
 
 if __name__ == "__main__":
-    generateForLinear()
+    generateForBinary()
