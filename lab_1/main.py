@@ -1,8 +1,8 @@
 from search import linear_search, binary_search
 from random import sample, choice
 from time import time
-import csv
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 def generateForLinear():
@@ -30,6 +30,8 @@ def generateForLinear():
         linear_search(data, random)
         elapsed = time() - start
         linear_result["exec_avg"].append(elapsed)
+    df = pd.DataFrame.from_dict(linear_result)
+    df.to_csv('linear_data.csv', index=False)
     plt.figure(1, figsize=(14, 12))
     plt.title("Input size vs Exec time")
     plt.xlabel('Input size')
@@ -71,6 +73,8 @@ def generateForBinary():
         binary_search(data, random, 0, i-1)
         elapsed = time() - start
         binary_result["exec_avg"].append(elapsed)
+    df = pd.DataFrame.from_dict(binary_result)
+    df.to_csv('binary_data.csv', index=False)
     plt.figure(1, figsize=(14, 12))
     plt.title("Input size vs Exec time")
     plt.xlabel('Input size')
@@ -86,4 +90,4 @@ def generateForBinary():
 
 
 if __name__ == "__main__":
-    generateForBinary()
+    generateForLinear()
