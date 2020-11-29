@@ -20,8 +20,11 @@ class GraphDetails():
         print("AverageDegree: ")
         print(graph_helpers.averageDegree(self.G))
         print()
-        # print("Diameter: ")
-        # print(graph_helpers.diameter(self.G))
+        print("Diameter: ")
+        print(graph_helpers.diameter(self.G))
+        print()
+        print("Clustering Coefficient: ")
+        print(graph_helpers.clusteringCoefficient(self.G))
         print()
 
     def plot(self, label: str):
