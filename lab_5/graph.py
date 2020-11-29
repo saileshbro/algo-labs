@@ -1,5 +1,6 @@
 import graph_helpers
 import matplotlib.pyplot as plt
+import networkx as nx
 
 
 class GraphDetails():
@@ -21,18 +22,21 @@ class GraphDetails():
         print()
         # print("Diameter: ")
         # print(graph_helpers.diameter(self.G))
-        # print()
+        print()
 
     def plot(self, label: str):
         graph_helpers.plotDegreeDistribution(self.G, label)
 
+    def drawGraph(self):
+        nx.draw(self.G)
+        plt.show()
+
 
 if __name__ == "__main__":
-    graphs = ["3elt", "176bit", "inf-power", "soc-advogato", "web-EPA"]
-    for graph in graphs:
-        G = GraphDetails(f"data/{graph}/{graph}.edges")
-        print(graph.upper())
-        print("----------------------------------")
-        G.printDetails()
-        G.plot(graph)
+    G = GraphDetails(
+        "data/insecta-ant-colony5-day38/insecta-ant-colony5-day38.edges")
+    print("insecta-ant-colony5-day38".upper())
+    print("----------------------------------")
+    G.printDetails()
+    G.drawGraph()
     plt.show()

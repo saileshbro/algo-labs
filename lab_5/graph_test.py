@@ -4,7 +4,7 @@ import networkx as nx
 import graph_helpers
 
 
-class GraphText(unittest.TestCase):
+class GraphTest(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.G = graph_helpers.getGraphFromFilePath(
